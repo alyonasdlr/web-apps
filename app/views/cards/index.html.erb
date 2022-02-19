@@ -1,28 +1,21 @@
 <% ranks = [2,3,4,5,6,7,8,9,10, "jack", "queen", "king", "ace"]
    suits = ["clubs", "diamonds", "hearts", "spades"]
 
-   rank1 = ranks.sample
-   suit1 = suits.sample
 
-   rank2 = ranks.sample
-   suit2 = suits.sample
-   
-   rank3 = ranks.sample
-   suit3 = suits.sample
 
-   rank4 = ranks.sample
-   suit4 = suits.sample
+   deck =[]
+    for rank in ranks
+            for suit in suits
+    deck << "#{rank}_of_#{suit}"
+    end
+    end
 
-   rank5 = ranks.sample
-   suit5 = suits.sample
+    shuffled_deck = deck.shuffle
+    hand = shuffled_deck[0,7]
 %>
 
 <h1> Welcome to our casino </h1>
 
-<li> <%= rank1 %> of <%= suit1 %> </li>
-<li> <%= rank2 %> of <%= suit2 %> </li>
-<li> <%= rank3 %> of <%= suit3 %> </li>
-<li> <%= rank4 %> of <%= suit4 %> </li>
-<li> <%= rank5 %> of <%= suit5 %> </li>
-
-</ul>
+<% for card in hand %>
+<img src = "/images/cards/<%= card %>.svg">
+<% end %>
